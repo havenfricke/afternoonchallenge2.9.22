@@ -29,7 +29,7 @@ function drawIcecream() {
     template += `
     <div class="col-6 bg-light p-0 selectable" onclick="buyIceCream(${item.id})">
     <img class="img-fluid" src="${item.image}" alt="broken image">
-    <div class="d-flex img-fix justify-content-between p-4">
+    <div class="d-flex img-fix justify-content-between p-1">
       <h6>${item.name}</h6>
       <p>$${item.price}</p>
     </div>
@@ -40,7 +40,6 @@ function drawIcecream() {
 }
 
 
-
 function drawVessels() {
   let template = ''
   for (let i = 0; i < vessels.length; i++) {
@@ -48,7 +47,7 @@ function drawVessels() {
     template += `
     <div class="col-6 bg-light p-0 selectable" onclick="buyIceCream(${item.id})">
     <img class="img-fluid" src="${item.image}" alt="broken image">
-    <div class="d-flex img-fix justify-content-between p-4">
+    <div class="d-flex img-fix justify-content-between p-1">
       <h6>${item.name}</h6>
       <p>$${item.price}</p>
     </div>
@@ -67,7 +66,7 @@ function drawTopping() {
     template += `
     <div class="col-6 bg-light p-0 selectable" onclick="buyIceCream(${item.id})">
     <img class="img-fluid" src="${item.image}" alt="broken image">
-    <div class="d-flex img-fix justify-content-between p-4">
+    <div class="d-flex img-fix justify-content-between p-1">
       <h6>${item.name}</h6>
       <p>$${item.price}</p>
     </div>
@@ -104,6 +103,13 @@ function buyIceCream(iceId) {
   cart.push(itemAdd)
   total += itemAdd.price
 
+  drawCart()
+}
+
+function checkout() {
+  if (cart.length)
+    cart = []
+  total = 0
   drawCart()
 }
 
